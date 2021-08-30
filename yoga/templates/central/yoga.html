@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Yoga</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Yoga</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slider Section-->
+    <section class="wow fadeIn">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="carousel slide carousel-fade" id="carousel-light10" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li class="active" data-target="#carousel-light10" data-slide-to="0"></li>
+                <li data-target="#carousel-light10" data-slide-to="1"></li>
+                <li data-target="#carousel-light10" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <div class="item active"><img src="{% static '011.jpg' %}" alt=""></div>
+                <div class="item"><img src="{% static '012.jpg' %}" alt=""></div>
+                <div class="item"><img src="{% static '013.jpg' %}" alt=""></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-md-offset-1">
+            <h2>Yoga</h2>
+            <p style="font-size:13px;">Gerçeğimle buluşmak üzere, matın üstü, yaşamın içi, her anım eşsiz bir pratik sunmakta. İdrak ettim yoganın amacını ve Yaşam Yogam doğdu. Mat pratiği her daim yardımcı, birçok zamanda başlangıç, bedenle harekete geçiren, nefesle odaklayan, meditasyonla uyandıran. Aynı zamanda, ne büyük hediyedir yaşamın bana sunduğu her an. Kabul edemediklerim esas pratik alanım. Bir göremezsem tekrar gelecek, iki, üç, dört… Görüp, anlayıp, özgürleşene kadar. Ayırımlar, şartlar, iyiler kötüler hep taşıdığım kılıftan. Evet bu kılıf ya da kılıflarda benim parçalarım ancak ne kadar sınırlı ve ne çok kontrole almışlar beni. Yüzeydeki benliğim diyebilirim. Birde derinimdeki benliğim var, özüm. Seninkiyle bir, doğayla bir, evrenin parçası. Şahane! Aynı engin bir okyanus ve dalgaları, damlaları gibi. Okyanus, her bir zerrede mevcut. Sevgi, güç ve huzurun hepimizde var olduğu gibi. İşte bu gerçeğe uyandırıyor her an beni. Mucize!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

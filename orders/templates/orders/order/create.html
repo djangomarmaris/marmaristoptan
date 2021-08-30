@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block seo %}
+    <title>Ödeme Şeçenekleri</title>
+{% endblock %}
+{% block content %}
+<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Ödeme Bilgileri</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+<section class="section-small" id="shop">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h3>Satın Alınmak İstenen Ürünler</h3>
+            <table class="table shop-cart table-hover">
+              <thead>
+               {% if failure %}
+               {{ failure }}
+               {% endif %}
+                <tr>
+                  <td>Resim</td>
+                  <td>Ürün</td>
+                  <td>Saat</td>
+                  <td>Toplam</td>
+                </tr>
+              </thead>
+              <tbody>
+              {% for item in cart %}
+                <tr>
+                  <td class="hidden-xs"><img src="{% if item.product.image %}{{ item.product.image.url }}{% else %}{% endif %}" alt=""></td>
+                  <td>{{ item.product }}</td>
+                  <td class="hidden-xs">
+                    <h4>{{ item.quantity }}</h4>
+                  </td>
+                  <td class="hidden-xs">
+                    <h4>{{ item.total_price }}</h4>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+            <h3 class="no-pad">You may also like</h3>
+              <form action="." method="post">
+                {% csrf_token %}
+                <div class="row">
+              <div class="col-6 col-md-6">{{ form.first_name|as_crispy_field }}</div>
+              <div class="col-6 col-md-6">{{ form.last_name|as_crispy_field }}</div>
+              </div>
+              <div class="row">
+                <div class="col-6 col-md-6">{{ form.phone|as_crispy_field }}</div>
+                <div class="col-6 col-md-6">{{ form.city|as_crispy_field }}</div>
+              </div>
+              <div class="row">
+                <div class="col-6 col-md-6">{{ form.email|as_crispy_field }}</div>
+                <div class="col-6 col-md-6">{{ form.adress|as_crispy_field }}</div>
+              </div>
+                <div class="row">
+                <div class="col-6 col-md-12">{{ form.tc|as_crispy_field }}<p><input class="button btn btn-dark" type="submit" value="Alışverişi Tamamla"></p></div>
+              </div>
+
+            </form>
+          </div>
+          <div class="col-lg-3 col-lg-offset-1">
+            <h3>Genel Toplam</h3>
+            <p>Fiyatlarımıza Kdv Dahildir.</p>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Toplam</td>
+                    <th>{{ cart.get_total_price }}</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+{% endblock %}
+

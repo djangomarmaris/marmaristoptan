@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block seo %}
+<title>Satın Aldıklarım</title>
+
+{% endblock %}
+{% block content %}
+<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
+<section class="section-small text-center" id="services">
+      <div class="container">
+        <div class="row">
+            {% if messages %}
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+    <div class="alert alert-primary" role="alert">
+      {{ message }}
+    </div>
+    {% endif %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <div class="alert alert-success" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="alert alert-danger" role="alert">
+      {{ message }}
+    </div>
+    {% endif %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+    <div class="alert alert-warning" role="alert">
+      {{ message }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+        </div>
+      </div>
+    </section>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <div class="row">
+      {% if show %}
+
+      <table class="table table-hover">
+        <thead>
+        <tr  class="text-center">
+          <th  class="text-center" scope="col">Sipariş Kodu</th>
+          <th  class="text-center" scope="col">Alınan Ürün</th>
+          <th  class="text-center" scope="col">Sipariş Edilen Ürün</th>
+          <th  class="text-center" scope="col">Satın Alınma Tarihi</th>
+
+        </tr>
+        </thead>
+        {%for x in show %}
+        <tbody>
+
+        <tr style="background:#ffff;">
+          <th  class="text-center" scope="row">{{x.order}}</th>
+          <td  class="text-center"><a href="{{x.product.get_absolute_url}}"><img class="rounded" width="100" src="{% if x.product.image %}{{ x.product.image.url }}{% else %}{% endif %}"   title="{{ product.name}}" alt="Responsive image" /></a></td>
+          <td  class="text-center">{{x.product}}</td>
+          <td  class="text-center">{{x.created_date}}</td>
+        </tr>
+        </tbody>
+
+        {% endfor%}
+        {% else %}
+          <div class="container">
+          <h3 style="text-align:center;">Üzgünüz Herangi Bir Ürün Alımı Yapmamışsınız.</h3>
+          </div>
+        {% endif %}
+      </table>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

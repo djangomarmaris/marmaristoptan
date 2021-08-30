@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Mentörlük</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Mnetörlük</h2>
+          </div>
+          <div class="col-md-6 text-right">
+            <h4 class="breadcrumb"><a href="index.html">Home</a> / <a href="shop.html">Shop</a>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slider Section-->
+    <section class="wow fadeIn">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="carousel slide carousel-fade" id="carousel-light10" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li class="active" data-target="#carousel-light10" data-slide-to="0"></li>
+                <li data-target="#carousel-light10" data-slide-to="1"></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <div class="item active"><img src="{% static '017.jpg' %}" alt=""></div>
+                <div class="item"><img src="{% static '018.jpg' %}" alt=""></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-md-offset-1">
+            <h2>Mentörlük</h2>
+            <p>Ne zaman yoga derslerime paylaşım demeye başladım o zaman kendim olmaya, özgürce araştırmalarımdan, pratiklerimden, soru işaretlerimden, kalbimden sunmaya başladım.  Paylaşımlarım yaşamımı, yaşamım paylaşımlarımı destekledi. Sonuçta her nefesimiz bizi içimizdeki sevgiyle buluşturmak için bir ilham değilmi? Yaşamın ve gelişiminde, yoga hocalığında, paylaşımlarında beceriyle akabilmene yardımcı olabilecek ana hatları, sana özel değerlendirerek, sunmak beni çok mutlu eder.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="section-small" id="contact2">
+      <div class="container wow fadeIn">
+        <div class="row">
+          <div class="col-md-4">
+            <p><i class="fa fa-phone la-fw la-lg"></i> +90 533 721 06 49 <br> <i class="fa fa-envelope la-fw la-lg"></i> info@zeyneburas.com <br> <i class="fa fa-map-marker la-fw la-lg"></i> Akyaka
+            </p>
+            <hr>
+            <!-- Contact Form - Enter your email address on line 17 of the mail/contact_me.php file to make this form work. For more information on how to do this please visit the Docs!-->
+            <form name="sentMessage" novalidate="" method="POST">
+              {% csrf_token %}
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label class="sr-only control-label" for="name">İsim Soyisim</label>
+                  <input name="name" class="form-control input-lg" id="name" type="text" placeholder="İsminiz" required="" data-validation-required-message="Please enter name"><span class="help-block text-danger"></span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label class="sr-only control-label" for="email">Email</label>
+                  <input name="email" class="form-control input-lg" id="email" type="email" placeholder="Email" required="" data-validation-required-message="Please enter email"><span class="help-block text-danger"></span>
+                </div>
+              </div>
+              <div class="control-group">
+                <div class="form-group floating-label-form-group controls">
+                  <label class="sr-only control-label" for="message">Message</label>
+                  <textarea name="info" class="form-control input-lg" id="message" rows="2" placeholder="Mesajınız" required="" data-validation-required-message="Please enter a message." aria-invalid="false"></textarea><span class="help-block text-danger"></span>
+                </div>
+              </div>
+              <div id="success"></div>
+              <button name="btnSubmit" class="btn btn-dark btn-lg" type="submit">Gönder</button>
+            </form>
+          </div>
+          <div class="col-md-8">
+            <!-- Map Section-->
+            <img class="wow slideInRight center-block" src="{% static '14.png' %}" alt="" data-wow-duration="2s" animation-duration="2s">
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

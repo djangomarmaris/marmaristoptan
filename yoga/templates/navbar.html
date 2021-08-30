@@ -1,0 +1,86 @@
+{% load static i18n %}
+<!-- Preloader (Optional)-->
+<div id="preloader">
+  <div id="status"></div>
+</div>
+<!-- Navigation-->
+<nav style="font-family:Chap Light;" class="navbar navbar-Concept navbar-center navbar-custom navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand page-scroll" href="/">
+      <!-- Text or Image logo-->
+      <div class="logobig"><img class="logo" src="{% static 'beyazlogo.png' %}"></div><img class="logodark" src="{% static 'zeynep.png' %}"></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling-->
+    <div class="collapse navbar-collapse navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <!-- Hidden li included to remove active class from about link when scrolled up past about section-->
+        <li class="hidden"><a href="#page-top"></a></li>
+        <li><a href="/zeynep/about/">HAKKINDA<span class="caret"></span></a>
+        </li>
+        <li><a href="/zeynep/yoga/">YOGA <span class="caret"></span></a>
+          <!---
+          <ul class="dropdown-menu">
+            <li><a href="about.html">Yaşam Yogam</a></li>
+          </ul>
+          ---->
+        </li>
+        <li><a href="/zeynep/share/">PAYLAŞIMLAR<span class="caret"></span></a>
+          <!----
+          <ul class="dropdown-menu">
+            <li><a href="portfolio-single.html">Ders</a></li>
+            <li><a href="portfolio-single.html">Kurs</a></li>
+            <li><a href="portfolio-single.html">Kamp</a></li>
+            <li><a href="portfolio-single.html">Eğitim</a></li>
+          </ul>
+          ---->
+        </li>
+        <li><a href="/zeynep/mentor/">MENTÖRLÜK <span class="caret"></span></a>
+          <!----
+          <ul class="dropdown-menu">
+            <li><a href="news2.html">Özel</a></li>
+            <li><a href="news2-sidebar.html">Grup</a></li>
+          </ul>
+          ---->
+        </li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="/zeynep/contact/">İLETİŞİM<span class="caret"></span></a>
+        <li><a href="#">ONLINE <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/shop/online">ONLİNE</a></li>
+            <li><a href="/shop/dersler/">DERS</a></li>
+            <li><a href="/shop/atolye/">ATÖLYE</a></li>
+
+          </ul>
+        </li>
+        <li><a href="#">DÜKKAN <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/shop/sensin-kartlari/">Sensin Kartları</a></li>
+          </ul>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li><a href="#">{{request.user}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/order/success/">Satın Aldıklarım</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" href="/user/logout/"><i class="fas fa-sign-in-alt fa-lg" aria-hidden="true"></i> Çıkış</a>
+        </li>
+          </ul>
+        </li>
+        {% with total_items=cart|length %}
+        {% if cart|length > 0 %}
+        <li class="dropdown"><a class="dropdown-toggle" href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart fa-lg"></i><span class="badge">{{cart|length}}</span><span class="caret"></span></a>
+        </li>
+        {% else %}
+        <li class="dropdown"><a class="dropdown-toggle" href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart fa-lg"></i><span class="badge">{{cart|length}}</span><span class="caret"></span></a>
+        </li>
+        {% endif %}
+        {% endwith %}
+        {% else %}
+        <li class="dropdown"><a class="dropdown-toggle" href="/user/login/"><i class="fa fa-user fa-lg"></i></a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

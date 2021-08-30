@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block seo %}
+    <title>Satın Aldıklarım</title>
+
+{% endblock %}
+{% block content %}
+
+<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+
+            <h1>Ödeme Başarısız</h1>
+          </div>
+          <div class="col-md-6 text-right">
+            <h4 class="breadcrumb"><a href="/cart/detail/">Sepetim</a>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+<section class="container-fluid bg-white text-center">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <h3>Ödeme Alınamadı Lütfen Tekrar Deneyiniz.</h3>
+          <h2>Sepetinizden Devam Edebiliriz.</h2>
+        </div>
+      </div>
+    </section>
+
+
+
+{% endblock %}

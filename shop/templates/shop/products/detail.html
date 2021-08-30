@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% load crispy_forms_tags %}
+
+ {% block seo %}
+
+{{ block.super }}
+    <title>{{ product.name}}</title>
+
+{% endblock %}
+
+{% block content %}
+<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>{{product.name}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- shop-->
+    <section class="section-small" id="shop">
+      <div class="container">
+        <div class="row">
+          <!-- shop carousel-->
+          <div class="carousel slide" id="carousel-shop">
+            <div class="col-lg-6 carousel-outer">
+              <!-- Wrapper for slides-->
+              <div class="carousel-inner">
+                <div class="item active"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></div>
+                <div class="item"><img src="{% if product.image2 %}{{ product.image2.url }}{% else %}{% endif %}" alt=""></div>
+                <div class="item"><img src="{% if product.image3 %}{{ product.image3.url }}{% else %}{% endif %}" alt=""></div>
+
+              </div>
+              <!-- Controls--><a class="left carousel-control" href="#carousel-shop" data-slide="prev"><span class="icon-prev"></span></a><a class="right carousel-control" href="#carousel-shop" data-slide="next"><span class="icon-next"></span></a>
+            </div>
+            <div class="col-lg-6 slide">
+              <ol class="carousel-indicators mCustomScrollbar">
+                <li class="active" data-target="#carousel-shop" data-slide-to="0"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></li>
+                <li data-target="#carousel-shop" data-slide-to="1"><img src="{% if product.image2 %}{{ product.image2.url }}{% else %}{% endif %}" alt=""></li>
+                <li data-target="#carousel-shop" data-slide-to="2"><img src="{% if product.image3 %}{{ product.image3.url }}{% else %}{% endif %}" alt=""></li>
+
+              </ol>
+              <hr>
+              <p>{{product.info}}</p>
+              <hr>
+              <form class="form-inline" action="{% url 'cart:cart_add' product.id %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <h2 class="no-pad">₺ {{product.price}}</h2>
+                </div>
+                |
+                <div class="form-group">
+                  {{ form.quantity|as_crispy_field}}
+                </div>
+                |
+                <button style="#532D61;" class="btn btn-dark" type="submit">Sepete Ekle</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<hr>
+
+{% endblock %}
+

@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Uraz</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<header class="intro carousel carousel-big slide carousel-fade" id="Carousel-intro" data-ride="carousel">
+      <!-- Indicators-->
+      <ol class="carousel-indicators">
+        <li class="active" data-target="#Carousel-intro" data-slide-to="0"></li>
+        <li data-target="#Carousel-intro" data-slide-to="1"></li>
+        <li data-target="#Carousel-intro" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="fill" style="background-image:url('{% static 'slide01.jpg' %}');">
+            <div class="intro-body">
+              <div class="overlay"></div>
+              <h1>
+                <div class="span big">
+                  <div style="color:#dda2bc;">Yaşam</div>
+                  <div class="span indent">Yogam</div>
+                </div>
+              </h1>
+              <p><a class="btn btn-white page-scroll wow fadeInLeft" href="#about">Read More</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('{% static 'slide02.jpg' %}');">
+            <div class="intro-body">
+              <div class="overlay"></div>
+              <h1>
+                <div class="span big">
+                  <div style="color:#dda2bc;">Yaşam</div>
+                  <div class="span indent">Yogam</div>
+                </div>
+              </h1>
+              <ul class="list-inline">
+                <li><a class="btn btn-white page-scroll wow fadeInLeft" href="#about">WHO WE ARE</a></li>
+                <li><a class="wow fadeInRight" href="#about"><i class="fa fa-plus-circle fa-2x page-scroll wow fadeInUp"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Controls--><a class="left carousel-control" href="#Carousel-intro" data-slide="prev"><span class="icon-prev"></span></a><a class="right carousel-control" href="#Carousel-intro" data-slide="next"><span class="icon-next"></span></a>
+    </header>
+    <!-- Teaser-->
+
+<section class="showcase section-small" id="about">
+      <div class="container">
+        <div class="row v-center">
+          <div class="col-lg-4">
+            <h2 style="font-family:Chap Light;">ZEYNEB URAS</h2>
+            <p style="font-family:Chap Light;">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır.</p>
+          </div>
+          <div class="col-lg-6"><img width="900" class="wow slideInRight center-block" src="{% static '14.png' %}" alt="" data-wow-duration="2s" animation-duration="2s"></div>
+        </div>
+      </div>
+    </section>
+
+ <section id="welcome">
+      <div class="container text-center">
+        <h2 class="text-center">ZeynebUras.com</h2>
+        <div class="row grid-pad">
+          <div class="col-sm-4"><a href="news-single-sidebar.html"><img class="img-responsive center-block" src="img/main/56.jpg" alt="">
+              <h3>AWAKE / UYANIK</h3></a>
+            <p>Zihnin anlattıkları da engin bilincin bir parçası, aynı zamanda kısıtlı, çok şartlı. Sadece ayırıyor beni senden, seni benden, bütünden. Nasıl olurdu gerçeğine uyanmak? Özünü tanımak, ‘Ben’i bilmek, gücüne güvenmek, sevgiden akmak. .</p>
+          </div>
+          <div class="col-sm-4"><a href="news-single-sidebar.html"><img class="img-responsive center-block" src="img/main/50.jpg" alt="">
+              <h3>HEART / KALP</h3></a>
+            <p>Kalplerimiz bir, hep saf, hep yeni.<br> Kendine alan tanıdıkça kalbini duyabilirsin. Işığını yansıtmaya, yaratmaya, dokunmaya başlayabilirsin.<br> Evrenin sana ihtiyacı var.</p>
+          </div>
+          <div class="col-sm-4"><a href="news-single-sidebar.html"><img class="img-responsive center-block" src="img/main/47.jpg" alt="">
+              <h3>PRACTİCE / PRATİK</h3></a>
+            <p>Özgürleşebilmen için yaşamın anbean gereken pratikleri sunuyor. Nereye takılıyorsan, ne canını yakıyorsa, bir türlü kabul edemiyorsan, işte uyanma fırsatı.Dur bir bakalım. Sor kendine, hayat senden, senin için ne istiyor. Burada ve bu anda şifan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="showcase section-small">
+      <div class="container text-center">
+        <div class="row v-center">
+          <div class="col-lg-3">
+            <h3><img width="200" src="{% static 'ikon2.png' %}" class="icon-big ion-volume-mute">Mucize</h3>
+            <p class="no-pad-btm">Her anın, her nefesin bir mucize. Sen bir mucizesin. <br>Kendine zaman ayırmayı, özen göstermeyi dilemekle güçleniyor kalbinle temasın.<br> Bildiğinin dışına çıkmak, merak etmek, sorgulamak, istemek, çok istemekle.</p>
+          </div>
+          <div class="col-lg-6"><img class="img-responsive center-block wow zoomIn" src="{% static 'orta.jpg' %}" alt="" data-wow-duration="3s"></div>
+          <div class="col-lg-3">
+            <h3><img width="200" src="{% static 'ikon3.png' %}" class="icon-big ion-volume-mute"> Hizmet</h3>
+            <p class="no-pad-btm">Açılıyor yolculuk sevgide, huzurda, neşede, senden sana, katman katman. <br> Farkındalığınla donattığın, ışığınla parıldattığın her an sadece sana değil, hepimize hizmet ediyor.<br> Sen özgürleştikçe dünya özgürleşiyor. Sen şifalandıkça evren şifalanıyor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}
