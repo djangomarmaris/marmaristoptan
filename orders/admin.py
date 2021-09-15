@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Order, OrderItem
+from .models import Order, OrderItem ,ReturnData ,WebhookData ,UserTokenData
 
 
 class Back_Admin(admin.ModelAdmin):
@@ -17,5 +17,21 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemInline]
 
 
+
+class ReturnDataAdmin(admin.ModelAdmin):
+    list_display = ['status']
+
+
+class WebHookAdmin(admin.ModelAdmin):
+    list_display = ['status']
+
+
+class UserDataAdmin(admin.ModelAdmin):
+    list_display = ['id', 'usertoken']
+
+
 admin.site.register(Order, OrderAdmin)
+admin.site.register(ReturnData,ReturnDataAdmin)
+admin.site.register(WebhookData,WebHookAdmin)
+admin.site.register(UserTokenData, UserDataAdmin)
 

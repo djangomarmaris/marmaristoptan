@@ -59,3 +59,42 @@ class OrderItem(models.Model):
 
 
 
+class ReturnData(models.Model):
+    status = models.CharField(max_length=510,verbose_name="status:")
+    systemtime = models.CharField(max_length=510,verbose_name="systemtime:")
+    conversationİd = models.CharField(max_length=510,verbose_name="conversationİd:")
+    price =  models.CharField(max_length=510,verbose_name="price:")
+    paidPrice = models.CharField(max_length=510,verbose_name="paidPrice:")
+    paymentid = models.CharField(max_length=510,verbose_name="paymentid:")
+    binNumber = models.CharField(max_length=510,verbose_name="binNumber:")
+    result_token = models.CharField(max_length=510,verbose_name="result_token:")
+    payment_token = models.CharField(max_length=510,verbose_name="payment_token:")
+
+
+    def __str__(self):
+        return self.status
+
+
+
+class WebhookData(models.Model):
+    paymentConversation = models.CharField(max_length=510,verbose_name="paymentConversation:")
+    merchant = models.CharField(max_length=510,verbose_name="merchant:")
+    webhooktoken = models.CharField(max_length=510,verbose_name="webhooktoken:")
+    status = models.CharField(max_length=510,verbose_name="status:")
+    iyziReferenceCode = models.CharField(max_length=510,verbose_name="iyziReferenceCode:")
+    iyziEventType = models.CharField(max_length=510,verbose_name="iyziEventType:")
+    iyziEventTime =models.CharField(max_length=510,verbose_name="iyziEventTime:")
+
+
+    def __str__(self):
+        return self.status
+
+
+
+class UserTokenData(models.Model):
+    userlast = models.CharField(max_length=510)
+    usertoken = models.CharField(max_length=510)
+
+
+    def __str__(self):
+        return self.usertoken

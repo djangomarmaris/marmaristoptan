@@ -1,10 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Uraz</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>4040</h2>
+          </div>
+          <div class="col-md-6 text-right">
+            <h4 class="breadcrumb"><a href="index.html"></a> / <a href="/">Ana Sayfa</a>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="wow fadeIn">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <div class="carousel slide carousel-fade" id="carousel-light10" data-ride="carousel">
+              <ol class="carousel-indicators">
+
+
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <div class="item active"><img  src="{% static 'nasa2.png' %}" alt=""></div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-md-offset-1">
+            <h2>404</h2>
+            <p>Houston, we have a problem</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}
+
+
+{% block jss %}
+{% endblock %}

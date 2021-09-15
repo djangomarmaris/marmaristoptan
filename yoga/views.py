@@ -7,13 +7,18 @@ from shop.models import Category
 from django.conf import settings
 from django.core.mail import send_mail
 
+from yoga.models import kvvk
+
+
 def index(request):
+    pdf = kvvk.objects.all()
     online = Category.objects.filter(name__contains='online')
     cart = Cart(request)
     print(request.user)
     context = {
         'cart':cart,
-        'online':online
+        'online':online,
+        'pdf':pdf
     }
     return render(request,'central/index.html',context)
 
