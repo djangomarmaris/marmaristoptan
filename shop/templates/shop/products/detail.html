@@ -7,11 +7,266 @@
  {% block seo %}
 
 {{ block.super }}
+
     <title>{{ product.name}}</title>
 
 {% endblock %}
 
 {% block content %}
+
+ <div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image plr--9---" data-bg="{% static 'dream.jpeg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between">
+                        <div class="section-title-area ltn__section-title-2">
+                            <h6 class="section-subtitle ltn__secondary-color">//  Marmaris Toptan</h6>
+                            <h1 class="section-title white-color">{{product.name}}</h1>
+                        </div>
+                        <div class="ltn__breadcrumb-list">
+                            <ul>
+                                <li><a href="/">Ana Sayfa</a></li>
+                                <li>Ürünler</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BREADCRUMB AREA END -->
+
+    <!-- SHOP DETAILS AREA START -->
+    <div class="ltn__shop-details-area pb-85">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="ltn__shop-details-inner mb-60">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="ltn__shop-details-img-gallery">
+                                    <div class="ltn__shop-details-large-img">
+                                        <div class="single-large-img">
+                                            <a href="{{product.image}}" data-rel="lightcase:myCollection">
+                                                <img src="{{product.image}}" alt="{{product.name}}">
+                                            </a>
+                                        </div>
+                                        <!--div class="single-large-img">
+                                            <a href="img/product/2.png" data-rel="lightcase:myCollection">
+                                                <img src="img/product/2.png" alt="Image">
+                                            </a>
+                                        </div>
+                                        <div class="single-large-img">
+                                            <a href="img/product/3.png" data-rel="lightcase:myCollection">
+                                                <img src="img/product/3.png" alt="Image">
+                                            </a>
+                                        </div>
+                                        <div class="single-large-img">
+                                            <a href="img/product/4.png" data-rel="lightcase:myCollection">
+                                                <img src="img/product/4.png" alt="Image">
+                                            </a>
+                                        </div>
+                                        <div class="single-large-img">
+                                            <a href="img/product/5.png" data-rel="lightcase:myCollection">
+                                                <img src="img/product/5.png" alt="Image">
+                                            </a>
+                                        </div>
+                                        <div class="single-large-img">
+                                            <a href="img/product/6.png" data-rel="lightcase:myCollection">
+                                                <img src="img/product/6.png" alt="Image">
+                                            </a>
+                                        </div>
+                                        <div class="single-large-img">
+                                            <a href="img/product/7.png" data-rel="lightcase:myCollection">
+                                                <img src="img/product/7.png" alt="Image">
+                                            </a>
+                                        </div-->
+                                    </div>
+                                    <!--div class="ltn__shop-details-small-img slick-arrow-2">
+                                        <div class="single-small-img">
+                                            <img src="{{product.image}}" alt="Image">
+                                        </div>
+                                        <div class="single-small-img">
+                                            <img src="img/product/2.png" alt="Image">
+                                        </div>
+                                        <div class="single-small-img">
+                                            <img src="img/product/3.png" alt="Image">
+                                        </div>
+                                        <div class="single-small-img">
+                                            <img src="img/product/4.png" alt="Image">
+                                        </div>
+                                        <div class="single-small-img">
+                                            <img src="img/product/5.png" alt="Image">
+                                        </div>
+                                        <div class="single-small-img">
+                                            <img src="img/product/6.png" alt="Image">
+                                        </div>
+                                        <div class="single-small-img">
+                                            <img src="img/product/7.png" alt="Image">
+                                        </div>
+                                    </div-->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="modal-product-info shop-details-info pl-0">
+                                    <div class="product-ratting">
+                                        <ul>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <h3>{{product.name}}</h3>
+                                    <div class="product-price">
+                                        <span>TL {{product.price}}</span>
+
+                                    </div>
+                                    <div class="modal-product-meta ltn__product-details-menu-1">
+                                        <ul>
+                                            <li>
+                                                <strong>Kategori:</strong>
+                                                <span>
+                                                    {{product.category}}
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                  <form  action="{% url 'cart:cart_add' product.id %}" method="post">
+                                    {% csrf_token %}
+                                    <div class="ltn__product-details-menu-2">
+                                        <ul>
+                                            <li>
+                                                <div>
+                                                    {{ form.quantity|as_crispy_field}}
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <button class="theme-btn-1 btn btn-effect-1" style="margin: 20px;margin-top: -15px;" title="Add to Cart" type="submit">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                    <span>Sepete Ekle</span>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                  </form>
+                                    <div class="ltn__product-details-menu-3">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="" title="Wishlist" data-toggle="modal" data-target="#liton_wishlist_modal">
+                                                    <i class="far fa-heart"></i>
+                                                    <span>Marmaris Toptan</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="" title="Compare" data-toggle="modal" data-target="#quick_view_modal">
+                                                    <i class="fas fa-exchange-alt"></i>
+                                                    <span>Yörenin En Güzel Ürünleri</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <hr>
+                                    <div class="ltn__social-media">
+                                        <ul>
+                                            <li>Share:</li>
+                                            <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                                            <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+
+                                        </ul>
+                                    </div>
+                                    <hr>
+                                    <div class="ltn__safe-checkout">
+                                        <h5>İyzico ile Güvenli Alışveriş | Marmaris Toptan</h5>
+                                        <img src="{% static 'visa.png' %}" alt="Payment Image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Shop Tab Start -->
+                    <div class="ltn__shop-details-tab-inner ltn__shop-details-tab-inner-2">
+                        <div class="ltn__shop-details-tab-menu">
+                            <div class="nav">
+                                <a class="active show" data-toggle="tab" href="#liton_tab_details_1_1">Açıklama</a>
+
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active show" id="liton_tab_details_1_1">
+                                <div class="ltn__shop-details-tab-content-inner">
+                                    <h4 class="title-2">{{product.name}}</h4>
+                                    <p>{{product.info | safe}}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Shop Tab End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SHOP DETAILS AREA END -->
+
+    <!-- PRODUCT SLIDER AREA START -->
+    <div class="ltn__product-slider-area ltn__product-gutter pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title-area ltn__section-title-2">
+                        <h6 class="section-subtitle ltn__secondary-color">//  Marmaris Top</h6>
+                        <h1 class="section-title">Diğer Ürünlerimiz<span>.</span></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row ltn__related-product-slider-one-active slick-arrow-1">
+              {% for s in smiller %}
+                <div class="col-lg-12">
+                    <div class="ltn__product-item ltn__product-item-3 text-center">
+                        <div class="product-img">
+                            <a href="{{s.get_absolute_url}}"><img src="{{s.image}}" alt="#"></a>
+                            <div class="product-badge">
+                                <ul>
+                                    <li class="sale-badge">New</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="product-info">
+                            <div class="product-ratting">
+                                <ul>
+                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                </ul>
+                            </div>
+                            <h2 class="product-title"><a href="product-details.html">{{s.name}}</a></h2>
+                            <div class="product-price">
+                                <span>TL {{s.price}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
+
 <div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
       <div class="overlay"></div>
       <div class="container">
@@ -31,7 +286,7 @@
             <div class="col-lg-6 carousel-outer">
               <!-- Wrapper for slides-->
               <div class="carousel-inner">
-                <div class="item active"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></div>
+                <div class="item active"><img src="{{product.image}}" alt=""></div>
                 <div class="item"><img src="{% if product.image2 %}{{ product.image2.url }}{% else %}{% endif %}" alt=""></div>
                 <div class="item"><img src="{% if product.image3 %}{{ product.image3.url }}{% else %}{% endif %}" alt=""></div>
 
@@ -67,6 +322,3 @@
     </section>
 
 <hr>
-
-{% endblock %}
-

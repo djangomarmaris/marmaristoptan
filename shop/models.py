@@ -6,49 +6,45 @@ from django.urls import reverse
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+MODEL = (
+        ('Bal Çeşitleri', 'Bal Çeşitleri'),
+        ('Arı Ürünleri', 'Arı Ürünleri'),
+        ('Reçel & Pekmez', 'Reçel & Pekmez'),
+        ('Yöresel Ürünler', 'Yöresel Ürünler'),
+        ('Zeytin & Zeytinyağı', 'Zeytin & Zeytinyağı'),
+        ('Sağlık Ürünleri', 'Sağlık Ürünleri'),
+        ('Badem Ürünleri', 'Badem Ürünleri'),
+        )
+
+
 
 class Category(models.Model):
-    parent = models.ForeignKey('self',blank=True,null=True,related_name='inside_category',on_delete=models.CASCADE)
-    name = models.CharField(max_length=20, db_index=True)
-    slug = models.SlugField(max_length=20, db_index=True, unique=True)
-
-    class Meta:
-        unique_together =('slug','parent')
-        verbose_name_plural = 'categories'
+    name = models.CharField(max_length=100, db_index=True, null=True, blank=True)
+    up = models.CharField(max_length=100, choices=MODEL, default='Ürün Üst Modeli Nedir?')
+    slug = models.SlugField(max_length=100, db_index=True, unique=True)
 
 
     def __str__(self):
-        full_path = [self.name]
-
-        k = self.parent
-        while k is not None:
-            full_path.append(k.name)
-            k = k.parent
-        return '->'.join(full_path[::-1])
-
+        return self.name
 
 
     def get_absolute_url(self):
-        return reverse('shop:product_list_by_show', args=[self.slug])
+        return reverse('product_list_by_show', args=[self.slug])
 
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete = models.CASCADE)
-    product_no = models.CharField(max_length=25,default='Ürün Kodu Giriniz')
-    name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True)
-    image = models.ImageField(upload_to='products/%y/%m/%d', blank=True)
-    image2 = models.ImageField(upload_to='products/%y/%m/%d', blank=True)
-    image3 = models.ImageField(upload_to='products/%y/%m/%d', blank=True)
-    info = models.TextField(default='Ürün Aaçıklama')
-    description = RichTextUploadingField(blank=True)
-    shop = RichTextUploadingField(blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=0)
-    normal_price = models.CharField(max_length=4,db_index=True,default='SOME STRING')
-    discount = models.CharField(max_length=4,db_index=True,default='SOME STRING')
-    stock = models.PositiveIntegerField()
-    noDropDown = models.BooleanField(blank=True)
+    category = models.ForeignKey(Category, on_delete = models.CASCADE,blank=True,null=True)
+    product_no = models.CharField(max_length=100,default='Ürün Kodu Giriniz')
+    name = models.CharField(max_length=200,default='Ürün Kodu Giriniz')
+    slug = models.SlugField()
+    image = models.CharField(max_length=200,default='Ürün Kodu Giriniz')
+
+
+    price = models.CharField(max_length=200,default='Ürün Kodu Giriniz')
+
+    stock = models.CharField(max_length=200,default='Ürün Kodu Giriniz')
+    index = models.BooleanField(default=False)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -78,9 +74,22 @@ class Product(models.Model):
 
 
     def get_absolute_url(self):
-        return reverse('shop:product_detail', args=[self.id, self.slug])
+        return reverse('product_detail', args=[self.slug])
 
 
+
+
+
+class Slider(models.Model):
+    h1 = models.CharField(max_length=200, default='Ürün Kodu Giriniz')
+    h2 = models.CharField(max_length=200, default='Ürün Kodu Giriniz')
+    product  = models.CharField(max_length=200, default='Ürün Kodu Giriniz')
+    image = models.ImageField(upload_to='products/%y/%m/%d', blank=True)
+
+
+
+    def __str__(self):
+        return self.h1
 
 
 

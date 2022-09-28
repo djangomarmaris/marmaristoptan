@@ -14,6 +14,13 @@ from shop.models import Category
 
 
 def register(request):
+    cate = Category.objects.filter(up__contains='bal')
+    oil = Category.objects.filter(up__contains='zeytin')
+    bee = Category.objects.filter(up__contains='arı')
+    recel = Category.objects.filter(up__contains='reçel')
+    area = Category.objects.filter(up__contains='yöre')
+    heal = Category.objects.filter(up__contains='sağlık')
+    badem = Category.objects.filter(up__contains='badem')
     form = RegisterForm(request.POST or None)
     if form.is_valid():
         username = form.cleaned_data.get("username")
@@ -39,15 +46,37 @@ def register(request):
         return redirect("index")
     context = {
         "form": form,
+
+        'cate': cate,
+        'badem': badem,
+        'oil': oil,
+        'bee': bee,
+        'recel': recel,
+        'area': area,
+        'heal': heal,
     }
     return render(request,"register.html", context)
 
 
 def loginUser(request):
+    cate = Category.objects.filter(up__contains='bal')
+    oil = Category.objects.filter(up__contains='zeytin')
+    bee = Category.objects.filter(up__contains='arı')
+    recel = Category.objects.filter(up__contains='reçel')
+    area = Category.objects.filter(up__contains='yöre')
+    heal = Category.objects.filter(up__contains='sağlık')
+    badem = Category.objects.filter(up__contains='badem')
     form = LoginForm(request.POST or None)
 
     context = {
-        "form": form
+        "form": form,
+        'cate': cate,
+        'badem': badem,
+        'oil': oil,
+        'bee': bee,
+        'recel': recel,
+        'area': area,
+        'heal': heal,
     }
 
     if form.is_valid():

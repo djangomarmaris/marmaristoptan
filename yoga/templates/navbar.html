@@ -1,86 +1,357 @@
 {% load static i18n %}
-<!-- Preloader (Optional)-->
-<div id="preloader">
-  <div id="status"></div>
-</div>
-<!-- Navigation-->
-<nav style="font-family:Chap Light;" class="navbar navbar-Concept navbar-center navbar-custom navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand page-scroll" href="/">
-      <!-- Text or Image logo-->
-      <div class="logobig"><img class="logo" src="{% static 'beyazlogo.png' %}"></div><img class="logodark" src="{% static 'zeynep.png' %}"></a>
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling-->
-    <div class="collapse navbar-collapse navbar-main-collapse">
-      <ul class="nav navbar-nav">
-        <!-- Hidden li included to remove active class from about link when scrolled up past about section-->
-        <li class="hidden"><a href="#page-top"></a></li>
-        <li><a href="/zeynep/about/">HAKKINDA<span class="caret"></span></a>
-        </li>
-        <li><a href="/zeynep/yoga/">YOGA <span class="caret"></span></a>
-          <!---
-          <ul class="dropdown-menu">
-            <li><a href="about.html">Yaşam Yogam</a></li>
-          </ul>
-          ---->
-        </li>
-        <li><a href="/zeynep/share/">PAYLAŞIMLAR<span class="caret"></span></a>
-          <!----
-          <ul class="dropdown-menu">
-            <li><a href="portfolio-single.html">Ders</a></li>
-            <li><a href="portfolio-single.html">Kurs</a></li>
-            <li><a href="portfolio-single.html">Kamp</a></li>
-            <li><a href="portfolio-single.html">Eğitim</a></li>
-          </ul>
-          ---->
-        </li>
-        <li><a href="/zeynep/mentor/">MENTÖRLÜK <span class="caret"></span></a>
-          <!----
-          <ul class="dropdown-menu">
-            <li><a href="news2.html">Özel</a></li>
-            <li><a href="news2-sidebar.html">Grup</a></li>
-          </ul>
-          ---->
-        </li>
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-        <li><a href="/zeynep/contact/">İLETİŞİM<span class="caret"></span></a>
-        <li><a href="#">ONLINE <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/shop/online">ONLİNE</a></li>
-            <li><a href="/shop/dersler/">DERS</a></li>
-            <li><a href="/shop/atolye/">ATÖLYE</a></li>
 
-          </ul>
-        </li>
-        <li><a href="#">DÜKKAN <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/shop/sensin-kartlari/">Sensin Kartları</a></li>
-          </ul>
-        </li>
-        {% if request.user.is_authenticated %}
-        <li><a href="#">{{request.user}} <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/order/success/">Satın Aldıklarım</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" href="/user/logout/"><i class="fas fa-sign-in-alt fa-lg" aria-hidden="true"></i> Çıkış</a>
-        </li>
-          </ul>
-        </li>
-        {% with total_items=cart|length %}
-        {% if cart|length > 0 %}
-        <li class="dropdown"><a class="dropdown-toggle" href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart fa-lg"></i><span class="badge">{{cart|length}}</span><span class="caret"></span></a>
-        </li>
-        {% else %}
-        <li class="dropdown"><a class="dropdown-toggle" href="{% url 'cart:cart_detail' %}"><i class="fa fa-shopping-cart fa-lg"></i><span class="badge">{{cart|length}}</span><span class="caret"></span></a>
-        </li>
-        {% endif %}
-        {% endwith %}
-        {% else %}
-        <li class="dropdown"><a class="dropdown-toggle" href="/user/login/"><i class="fa fa-user fa-lg"></i></a>
-        </li>
-        {% endif %}
-      </ul>
+  <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+<!-- Body main wrapper start -->
+<div class="body-wrapper">
+
+    <!-- HEADER AREA START (header-5) -->
+    <header class="ltn__header-area ltn__header-5 ltn__header-transparent-- gradient-color-4---">
+        <!-- ltn__header-top-area start -->
+        <div class="ltn__header-top-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="ltn__top-bar-menu">
+                            <ul>
+                                <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@marmaristoptan.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="top-bar-right text-right">
+                            <div class="ltn__top-bar-menu">
+                                <ul>
+                                    <!--li>
+
+                                        <div class="ltn__drop-menu ltn__currency-menu ltn__language-menu">
+                                            <ul>
+                                                <li><a href="#" class="dropdown-toggle"><span class="active-currency">English</span></a>
+                                                    <ul>
+                                                        <li><a href="#">Arabic</a></li>
+                                                        <li><a href="#">Bengali</a></li>
+                                                        <li><a href="#">Chinese</a></li>
+                                                        <li><a href="#">English</a></li>
+                                                        <li><a href="#">French</a></li>
+                                                        <li><a href="#">Hindi</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li-->
+                                    <li>
+                                        <!-- ltn__social-media -->
+                                        <div class="ltn__social-media">
+                                            <ul>
+                                                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+
+                                                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ltn__header-top-area end -->
+
+        <!-- ltn__header-middle-area start -->
+        <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white plr--9---">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="site-logo-wrap">
+                            <div class="site-logo">
+                                <a href="/"><img src="{% static 'logo1.png' %}" alt="Logo"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col header-menu-column menu-color-white---">
+                        <div class="header-menu d-none d-xl-block">
+                            <nav>
+                                <div class="ltn__main-menu">
+                                    <ul>
+                                        <li class="menu-icon"><a href="/">Ana Sayfa</a>
+                                        </li>
+                                        <li class="menu-icon"><a href="#">Bal Çeşitlerimiz</a>
+                                            <ul>
+                                                {% for category in cate %}
+                                                <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                                                {% endfor %}
+
+                                            </ul>
+                                        </li>
+                                        <li class="menu-icon"><a href="#">Zeytin & Zeyitinyağı</a>
+                                            <ul>
+                                                {% for category in oil %}
+                                                <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                                                {% endfor %}
+
+                                            </ul>
+                                        </li>
+
+                                        <li class="menu-icon"><a href="#">Diğer Ürünlermiz</a>
+                                            <ul class="mega-menu">
+                                                <li><a href="#">Arı Ürünleri</a>
+                                                    <ul>
+                                                        {% for category in bee %}
+                                                        <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                                                        {% endfor %}
+
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Reçel & Yöresel Ürünler</a>
+                                                    <ul>
+                                                        {% for category in recel %}
+                                                        <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                                                        {% endfor %}
+                                                        {% for category in area %}
+                                                        <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Sağlık Ürünleri</a>
+                                                    <ul>
+                                                        {% for category in heal %}
+                                                        <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                                                        {% endfor %}
+                                                        {% for category in badem %}
+                                                        <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                                                        {% endfor %}
+
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="/iletisim/">İletişim</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="ltn__header-options ltn__header-options-2 mb-sm-20">
+                        <!-- header-search-1 -->
+                        <div class="header-search-wrap">
+                            <div class="header-search-1">
+                                <div class="search-icon">
+                                    <i class="icon-search for-search-show"></i>
+                                    <i class="icon-cancel  for-search-close"></i>
+                                </div>
+                            </div>
+                            <div class="header-search-1-form">
+                                <form id="#" method="get"  action="#">
+                                    <input type="text" name="search" value="" placeholder="Search here..."/>
+                                    <button type="submit">
+                                        <span><i class="icon-search"></i></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        {% if request.user.is_authenticated %}
+                        <div class="ltn__drop-menu user-menu">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="icon-user"></i></a>
+                                    <ul>
+                                        <li><a href="/"><i class="icon-user"></i>{{request.user}}</a></li>
+                                        <li><a href="/order/success/"><i class="icon-logout"></i>Siparişler</a></li>
+                                        <li><a href="/user/logout/">Çıkış</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        {% with total_items=cart|length %}
+                        {% if cart|length > 0 %}
+                         <div class="mini-cart-icon">
+                            <a href="{% url 'cart:cart_detail' %}">
+                                <i class="icon-shopping-cart"></i>
+                                <sup>{{cart|length}}</sup>
+                            </a>
+                        </div>
+                        {% else %}
+                         <div class="mini-cart-icon">
+                            <a href="{% url 'cart:cart_detail' %}">
+                                <i class="icon-shopping-cart"></i>
+                                <sup>{{cart|length}}</sup>
+                            </a>
+                        </div>
+                         {% endif %}
+                        {% endwith %}
+                        {% else %}
+                        <div class="ltn__drop-menu user-menu">
+                            <ul>
+                                <li>
+                                    <a href="#"><i class="icon-user"></i></a>
+                                    <ul>
+                                        <li><a href="/user/login/">Giriş</a></li>
+                                        <li><a href="/user/register/">Kayıt Ol</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        {% endif %}
+                        <!-- mini-cart -->
+                        <!-- Mobile Menu Button -->
+                        <div class="mobile-menu-toggle d-xl-none">
+                            <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
+                                <svg viewBox="0 0 800 600">
+                                    <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
+                                    <path d="M300,320 L540,320" id="middle"></path>
+                                    <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ltn__header-middle-area end -->
+    </header>
+    <!-- HEADER AREA END -->
+
+    <!-- Utilize Cart Menu Start -->
+    <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
+        <div class="ltn__utilize-menu-inner ltn__scrollbar">
+            <div class="ltn__utilize-menu-head">
+                <span class="ltn__utilize-menu-title">Cart</span>
+                <button class="ltn__utilize-close">×</button>
+            </div>
+            <div class="mini-cart-product-area ltn__scrollbar">
+                <div class="mini-cart-item clearfix">
+                    <div class="mini-cart-img">
+                        <a href="#"><img src="img/product/1.png" alt="Image"></a>
+                        <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
+                    </div>
+                    <div class="mini-cart-info">
+                        <h6><a href="#">Red Hot Tomato</a></h6>
+                        <span class="mini-cart-quantity">1 x $65.00</span>
+                    </div>
+                </div>
+                <div class="mini-cart-item clearfix">
+                    <div class="mini-cart-img">
+                        <a href="#"><img src="img/product/2.png" alt="Image"></a>
+                        <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
+                    </div>
+                    <div class="mini-cart-info">
+                        <h6><a href="#">Vegetables Juices</a></h6>
+                        <span class="mini-cart-quantity">1 x $85.00</span>
+                    </div>
+                </div>
+                <div class="mini-cart-item clearfix">
+                    <div class="mini-cart-img">
+                        <a href="#"><img src="img/product/3.png" alt="Image"></a>
+                        <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
+                    </div>
+                    <div class="mini-cart-info">
+                        <h6><a href="#">Orange Sliced Mix</a></h6>
+                        <span class="mini-cart-quantity">1 x $92.00</span>
+                    </div>
+                </div>
+                <div class="mini-cart-item clearfix">
+                    <div class="mini-cart-img">
+                        <a href="#"><img src="img/product/4.png" alt="Image"></a>
+                        <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
+                    </div>
+                    <div class="mini-cart-info">
+                        <h6><a href="#">Orange Fresh Juice</a></h6>
+                        <span class="mini-cart-quantity">1 x $68.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mini-cart-footer">
+                <div class="mini-cart-sub-total">
+                    <h5>Subtotal: <span>$310.00</span></h5>
+                </div>
+                <div class="btn-wrapper">
+                    <a href="cart.html" class="theme-btn-1 btn btn-effect-1">View Cart</a>
+                    <a href="cart.html" class="theme-btn-2 btn btn-effect-2">Checkout</a>
+                </div>
+                <p>Free Shipping on All Orders Over $100!</p>
+            </div>
+
+        </div>
     </div>
-  </div>
-</nav>
+    <!-- Utilize Cart Menu End -->
+
+    <!-- Utilize Mobile Menu Start -->
+    <div id="ltn__utilize-mobile-menu" class="ltn__utilize ltn__utilize-mobile-menu">
+        <div class="ltn__utilize-menu-inner ltn__scrollbar">
+            <div class="ltn__utilize-menu-head">
+                <div class="site-logo">
+                    <a href="index.html"><img src="{% static 'logo1.png' %}" alt="Logo"></a>
+                </div>
+                <button class="ltn__utilize-close">×</button>
+            </div>
+            <div class="ltn__utilize-menu-search-form">
+                <form action="#">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="ltn__utilize-menu">
+                <ul>
+                    <li><a href="/">Ana Sayfa</a>
+
+                    </li>
+                    <li><a href="#">Bal Çeşitlerimiz</a>
+                        <ul class="sub-menu">
+                            {% for category in cate %}
+                            <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                            {% endfor %}
+
+                        </ul>
+                    </li>
+                    <li><a href="#">Zeytin & Zeytinyağı</a>
+                        <ul class="sub-menu">
+                            {% for category in oil %}
+                            <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="#">Diğer ürünlerimiz</a>
+                        <ul class="sub-menu">
+                            {% for category in bee %}
+                            <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                            {% endfor %}
+                            {% for category in recel %}
+                            <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                            {% endfor %}
+                            {% for category in area %}
+                            <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                            {% endfor %}
+                            {% for category in heal %}
+                            <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                            {% endfor %}
+                            {% for category in badem %}
+                            <li><a href="{{category.get_absolute_url}}">{{category.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+
+                    <li><a href="iletisim/">İletişim</a></li>
+                </ul>
+            </div>
+
+            <div class="ltn__social-media-2">
+                <ul>
+                    <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Utilize Mobile Menu End -->
+
+    <div class="ltn__utilize-overlay"></div>
+</div>

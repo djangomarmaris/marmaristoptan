@@ -21,18 +21,30 @@ from django.conf.urls.static import static
 from django.conf.urls import include
 from django.conf.urls.i18n import i18n_patterns
 from yoga import views
-
-
+from orders.views import *
+from shop.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('i18n/',include('django.conf.urls.i18n')),
+    path('webhooks/', webhook, name='webhooks'),
+]
+urlpatterns += i18n_patterns (
     path('',views.index,name='index'),
+
+
+
     path('cart/',include('cart.urls', namespace='cart')),
+    path('iletisim/',views.contact,name='contact'),
+    path('marmaris/<str:category_slug>/', views.Show, name='product_list_by_show'),
+    path('<str:slug>/', views.product_detail, name = 'product_detail'),
+    path('list/', views.product_list, name='product_list'),path('iletisim/',views.contact,name='iletişim'),
     path('order/', include('orders.urls',namespace='orders')),
     path('shop/',include('shop.urls', namespace='shop')),
     path('user/',include("user.urls")),
-    path('zeynep/',include("yoga.urls")),
+    #path('marmaris/',include("yoga.urls")),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-]
+    prefix_default_language=False
+)
 urlpatterns  += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -9,92 +9,128 @@
 
 {% endblock %}
 {% block content %}
-<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>{{product.name}}</h2>
-          </div>
-        </div>
-      </div>
-    </div>
+
 <br>
+
+
 {% if cart|length > 0.9 %}
-<section class="section-small" id="shop">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <h3>Sepetim</h3>
-            <table class="table shop-cart table-hover">
-              <thead>
-                <tr>
-                  <td>Product</td>
-                  <td>Ürün</td>
-                  <td>Saat/Miktar</td>
-                  <td>Sil</td>
-                  <td>Fiyat</td>
-                  <td>Toplam</td>
-                </tr>
-              </thead>
-              <tbody>
-              {% for item in cart %}
-                {% with product=item.product %}
-                <tr>
-                  <td class="hidden-xs"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></td>
-                  <td>{{product.name}}</td>
-                  <td>
-                    <div class="form-group">
-                     <form class="d-block my-2" action="{% url 'cart:cart_add' product.id %}" method="post">
-                              <div class="row">
-                                  <div class="col">{{ item.update_quantity_form.quantity |as_crispy_field }}</div>
-                                  <div ><button class="btn btn-dark btn-xs mee" type="submit" value="Değiştir"><i class="fas fa-undo-alt"></i></button></div>
-                                  <div>{{ item.update_quantity_form.update}}</div>
-                              </div>
-                              {% csrf_token %}
-                          </form>
+<div class="liton__shoping-cart-area ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="shoping-cart-inner">
+                        <div class="shoping-cart-table table-responsive">
+                            <table class="table">
+                              <h1>Sepet İçerikleriniz</h1>
+                                <!--thead>
+                                    <th class="cart-product-remove">Sil</th>
+                                    <th class="cart-product-image">Ürün</th>
+                                    <th class="cart-product-info">İsim</th>
+
+                                    <th class="cart-product-quantity">Güncelle</th>
+                                    <th class="cart-product-subtotal">Toplam</th>
+                                </thead-->
+                                <tbody>
+                                {% for item in cart %}
+                                    {% with product=item.product %}
+                                    <tr style="text-align: justify;">
+                                      <td class="cart-product-remove"><a href="{% url 'cart:cart_remove' product.id %}">x</a></td>
+                                        <td class="cart-product-image">
+                                            <a href="product-details.html"><img src="{{product.image}}" alt="#"></a>
+                                        </td>
+                                        <td class="cart-product-info col-2">
+                                            <h6><a href="product-details.html">{{product.name}}</a></h6>
+                                        </td>
+                                        <td class="cart-product-price">₺ {{product.price}}</td>
+                                        <td class="cart-product-quantity">
+                                          <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                                          {% csrf_token %}
+                                            <div>
+                                                {{ item.update_quantity_form.quantity |as_crispy_field }}
+                                            </div>
+                                            <div >
+                                              <button style="backgorund-color:white;" type="submit" class="btn"><i style="color:red;" class="fa fa-retweet" aria-hidden="true"></i></button>
+                                              {{ item.update_quantity_form.update}}
+                                            </div>
+                                          </form>
+                                        </td>
+                                        <td class="cart-product-subtotal">₺{{ item.total_price }}</td>
+
+                                    </tr>
+                                 {% endwith %}
+                                {% endfor %}
+
+                                    <tr class="cart-coupon-row">
+                                        <td colspan="6">
+                                            <div class="cart-coupon">
+
+                                                <button type="submit" class="btn theme-btn-2 btn-effect-2">Marmaris Toptan</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="btn theme-btn-2 btn-effect-2-- disabled">Fiyatlarımıza KDV dahildir.</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="shoping-cart-total mt-50">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>Sepetinizin Toplamaı</td>
+                                        <td>₺  {{ cart.get_total_price }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>KDV </td>
+                                        <td>% 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Kargo Dahil Genel Toplam</strong></td>
+                                        <td><strong>₺  {{ cart.get_total_price }}</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            {% if cart.get_total_price > 600 %}
+                            <div class="btn-wrapper text-right">
+                                <a href="{% url 'orders:order_create' %}" class="theme-btn-1 btn btn-effect-1">SEPETİ ONAYLA</a>
+                            </div>
+                            {% else %}
+                            <br>
+                            <div class="btn-wrapper text-right">
+                                <h6 style="text-align: justify;">Sipariş vere bilmeniz için Sepetiniz 600 Tl ve üzeri olmalıdır.</h6>
+                            </div>
+                            {% endif %}
+                        </div>
                     </div>
-                  </td>
-                    <td class="text-center"><a href="{% url 'cart:cart_remove' product.id %}"> <i style="color:#151618;" class="fas fa-trash-alt"></i></a></td>
-                  <td class="hidden-xs">
-                    <h4>₺ {{product.price}}</h4>
-                  </td>
-                  <td class="hidden-xs">
-                    <h4>₺ {{ item.total_price }}</h4>
-                  </td>
-                </tr>
-                {% endwith %}
-              {% endfor %}
-              </tbody>
-            </table>
-          </div>
-          <div class="col-lg-3 col-lg-offset-1">
-            <h3>Genel Toplam</h3>
-            <p>Fiyatlarımıza Kdv Dahildir.</p>
-            <div class="table-responsive">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td>Genel Toplam</td>
-                    <th>₺  {{ cart.get_total_price }}</th>
-                  </tr>
-                </tbody>
-              </table>
+                </div>
             </div>
-            <p><a class="button btn btn-dark" href="{% url 'orders:order_create' %}">Sepeti Onayla</a></p>
-            <hr>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
 {% else %}
-<section class="section-small text-center" id="services">
-      <div class="container">
-        <div class="row">
-            <p><a class="button btn btn-dark" href="/shop/dersler/">Hadi Gel Ürünlerimize Bakalım</a></p>
+ <div class="ltn__404-area ltn__404-area-1 mb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="error-404-inner text-center">
+                        <h1 class="error-404-title"><i class="fas fa-long-arrow-alt-left"></i></h1>
+                        <h2>Malasef sepetinizde herangi bir ürün bulunmamaktadır!</h2>
+                        <!-- <h3>Oops! Looks like something going rong</h3> -->
+                        <div class="btn-wrapper">
+                            <a href="/" class="btn btn-transparent"><i class="fas fa-long-arrow-alt-left"></i> TÜM ÜRÜNLER</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
 {% endif %}
+
+
+
+<br>
+<br>
+
+
 {% endblock %}
 

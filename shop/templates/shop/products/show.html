@@ -5,61 +5,124 @@
 
 
    {% block seo %}
-  <title>ZEYNEB URAS</title>
+  <title>Marmaris Toptan | Yörenin Çocuğu</title>
 
     {% endblock %}
 {% block content %}
-<div class="small-header bg-img-custom" style="background-image: url('{% static 'banner3.jpg' %}');">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h2>{{category.name}}</h2>
-          </div>
-          <div class="col-md-6 text-right">
-            <h4 class="breadcrumb"><a href="index.html">Home</a> / <a href="shop.html">Shop</a>
-            </h4>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- shop Block-->
-    <section class="section-small" id="shop">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="row grid-pad">
-              <div class="col-md-8 text-center">
-                <div class="container-fluid">
-                  <div class="row">
-                    {% for product in products %}
-                    <div class="col-sm-6">
-                      <div class="shop-item">
-                        <div class="badge price">₺ {{product.price}}</div>
-                        <div class="badge price"></div><a href="{{product.get_absolute_url}}"><span class="add-cart" title="Add to cart"></span></a><a href="{{product.get_absolute_url}}"><img class="img-responsive center-block" src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt=""></a>
-                      </div><a href="{{product.get_absolute_url}}">
-                        <h5>{{product.name}}</h5></a>
+ <!-- BREADCRUMB AREA START -->
+    <div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image plr--9---" data-bg="{% static 'dream.jpeg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between">
+                        <div class="section-title-area ltn__section-title-2">
+                            <h6 class="section-subtitle ltn__secondary-color">//  Marmaris Toptan</h6>
+                            <h1 class="section-title white-color">Ürünler</h1>
+                        </div>
+                        <div class="ltn__breadcrumb-list">
+                            <ul>
+                                <li><a href="/">Ana Sayfa</a></li>
+                                <li>Ürünler</li>
+                            </ul>
+                        </div>
                     </div>
-                    {% endfor %}
-                  </div>
                 </div>
-              </div>
-              <div class="col-md-3 col-md-offset-1">
-                <hr>
-                <h4>Partners</h4>
-                <div class="row">
-                  <div class="col-md-6 col-sm-3"><a href="client-single.html"><img class="img-responsive" src="img/clients/logo.png" alt=""></a></div>
-                  <div class="col-md-6 col-sm-3"><a href="client-single.html"><img class="img-responsive" src="img/clients/logo03.png" alt=""></a></div>
-                  <div class="col-md-6 col-sm-3"><a href="client-single.html"><img class="img-responsive" src="img/clients/logo02.png" alt=""></a></div>
-                  <div class="col-md-6 col-sm-3"><a href="client-single.html"><img class="img-responsive" src="img/clients/logo04.png" alt=""></a></div>
-                </div>
-                <hr>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </div>
+    <div class="ltn__product-area ltn__product-gutter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 order-lg-2 mb-120">
+                    <div class="ltn__shop-options">
+                        <ul>
+                            <li>
+                                <div class="ltn__grid-list-tab-menu ">
+                                    <div class="nav">
+                                        <a class="active show" data-toggle="tab" href="#liton_product_grid"><i class="fas fa-th-large"></i></a>
+                                        <a data-toggle="tab" href="#liton_product_list"><i class="fas fa-list"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                               <div class="short-by text-center">
+                                    <select class="nice-select">
+                                        <option>Default sorting</option>
+                                        <option>Sort by popularity</option>
+                                        <option>Sort by new arrivals</option>
+                                        <option>Sort by price: low to high</option>
+                                        <option>Sort by price: high to low</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                               <div class="showing-product-number text-right">
+                                    <span>Showing 9 of 20 results</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="liton_product_grid">
+                            <div class="ltn__product-tab-content-inner ltn__product-grid-view">
+                                <div class="row">
+                                    {% for product in products %}
+                                    <div class="col-xl-4 col-sm-6 col-6">
+                                        <div class="ltn__product-item ltn__product-item-3 text-center">
+                                            <div >
+                                                <a href="{{product.get_absolute_url}}"><img src="{{product.image}}" alt="#"></a>
+                                                <div class="product-badge">
+                                                    <ul>
+                                                        <li class="sale-badge">New</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-ratting">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+
+                                                    </ul>
+                                                </div>
+                                                <h2 class="product-title"><a href="product-details.html">{{product.name}}</a></h2>
+                                                <div class="product-price">
+                                                    <span>{{product.price}}</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-4  mb-120">
+                    <aside class="sidebar ltn__shop-sidebar">
+                        <!-- Category Widget -->
+                        <div class="widget ltn__menu-widget">
+                            <h4 class="ltn__widget-title ltn__widget-title-border">Detaylı Kategorileme</h4>
+                            <ul>
+                                {% for detail in full %}
+                                <li><a href="{{detail.get_absolute_url}}">{{detail.name}} <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
 <br>
 
 {% endblock %}

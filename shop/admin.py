@@ -1,19 +1,27 @@
 from django.contrib import admin
 from django import forms
-from .models import Category,Product
+from .resources import ProductResource ,CategoryResource
+from .models import Category,Product ,Slider
+from import_export.admin import ImportExportModelAdmin
 from ckeditor_uploader.fields import RichTextUploadingField
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['id','parent','name','slug']
+class CategoryAdmin(ImportExportModelAdmin):
+    list_display = ['id','name','slug']
     prepopulated_fields = {'slug':('name',)}
 
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['id','name','slug','category','price','available','created','updated']
+    resource_class = CategoryResource
+
+
+class ProductAdmin(ImportExportModelAdmin):
+    list_display = ['name','id','slug','image','category','price','available','index']
     list_filter = ['available','created','updated','category']
-    list_editable = ['price','available']
+    list_editable = ['price','available','index']
     prepopulated_fields = {'slug':('name',)}
+    exclude = ('id',)
+
+    resource_class = ProductResource
 
 class ModelClass:
     ## content = models.TextField()bu ile modeldeki classı belirleriz burayada dikkat.
@@ -24,6 +32,10 @@ class PostForm(forms.ModelForm):
 
 
 
+class SliderAdmin(admin.ModelAdmin):
+    list_display = ['h1']
+
+admin.site.register(Slider,SliderAdmin)
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(Product,ProductAdmin)
 admin.site.site_header = '@Enjoy.com / Developer @ İhsan Gürol Demirtaş'
